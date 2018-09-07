@@ -1,0 +1,60 @@
+<form #myRegForm="ngForm" (ngSubmit)=processForm(myRegForm)>
+  <mat-card>
+      <div fxLayout="column" fxLayoutGap="15px">
+          <h4>Please help to key in your details accurately to help us serve you better.</h4>
+          <mat-form-field>
+              <input matInput name="email" placeholder="Email" required email ngModel>
+              <mat-error>
+                  Please enter valid email address (eg.john@gmail.com)
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="password" placeholder="Password" ngModel required>
+              <mat-error>
+                Please enter a valid password
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="name" placeholder="Name" ngModel required>
+              <mat-error>
+                Please enter your name
+              </mat-error>
+          </mat-form-field>
+          <label>Gender:</label>
+            <mat-radio-group name="gender" ngModel required fxLayoutGap="25px">
+            <mat-radio-button value="after">Male</mat-radio-button>
+            <mat-radio-button value="before">Female</mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field>
+              <input matInput name="address" placeholder="Address" ngModel required>
+              <mat-error>
+                Please enter your address
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="country" placeholder="Country" ngModel required>
+              <mat-error>
+                Please enter the country you are residing in
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="contact" placeholder="Contact Number" ngModel required>
+              <mat-error>
+                Please enter your contact number
+              </mat-error>
+          </mat-form-field>
+      </div>
+      <div fxLayoutAlign="end" fxLayoutGap="10px">
+        <button mat-raised-button color="accent" type="reset">
+            <mat-icon>clear</mat-icon>
+            <span>Clear</span>
+        </button>
+        <button mat-raised-button color="accent" type="submit" [disabled]="myRegForm.invalid">
+          <mat-icon>add_box</mat-icon>
+          <span>Add</span>
+        </button>
+      </div>
+  </mat-card>
+
+
+</form>
