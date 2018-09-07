@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../post.model';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -8,10 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
   todaysDate:Date;
   minDate:Date = new Date(1900, 1, 1);
+  userData:User;
 
-  constructor(private route:Router) { }
+  constructor(private route:Router, private userSvc:UserService) { }
 
   ngOnInit() {
     this.todaysDate = new Date();
@@ -20,7 +24,13 @@ export class RegistrationComponent implements OnInit {
 
   processForm(theForm: NgForm) {
     console.log(theForm.value);
-    this.route.navigate(['/Thanks',"hello", "Male"])
+    this.userData = theForm.value;
+    console.log(this.userData);
+    this.userSvc.addUser(this.userData)
+        .subscribe((data: any) => {
+          console.log("post successful");
+    })
+    this.route.navigate(['/Thanks',this.userData.name, this.userData.gender])
   }
 
   getAge(DOB) {
@@ -32,5 +42,5 @@ export class RegistrationComponent implements OnInit {
         age--;
     }
     return age;
-}
+  }
 }
