@@ -11,7 +11,7 @@ const appRoutes = [
         component: RegistrationComponent,
     },
     {
-        path: 'Thanks',
+        path: 'Thanks/:name/:gender',
         component: ThanksComponent,
     },
     {

@@ -7,10 +7,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 const MODULES = [
     MatToolbarModule, MatInputModule, MatFormFieldModule, MatButtonModule,
-    FlexLayoutModule, MatCardModule, MatIconModule, MatRadioModule
+    FlexLayoutModule, MatCardModule, MatIconModule, MatRadioModule,
+    MatMomentDateModule, MatDatepickerModule
 ];
 
 @NgModule({
