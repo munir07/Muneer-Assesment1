@@ -12,14 +12,17 @@ import { UserService } from '../services/user.service';
 
 export class RegistrationComponent implements OnInit {
 
-  todaysDate:Date;
+  //todaysDate:Date;
+  maxDate:Date;
   minDate:Date = new Date(1900, 1, 1);
   userData:User;
 
   constructor(private route:Router, private userSvc:UserService) { }
 
   ngOnInit() {
-    this.todaysDate = new Date();
+    //this.todaysDate = new Date();
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18); //minimum 18 years old
   }
 
   processForm(theForm: NgForm) {
@@ -30,7 +33,7 @@ export class RegistrationComponent implements OnInit {
         console.log("post successful => ", data);
       });
     theForm.resetForm();
-    this.route.navigate(['/Thanks',this.userData.name, this.userData.gender])
+    this.route.navigate(['/Thanks',this.userData.name, this.userData.gender]);
   }
 
   getAge(DOB) {

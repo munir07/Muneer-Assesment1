@@ -26,9 +26,10 @@
             <mat-radio-button value="Female">Female</mat-radio-button>
           </mat-radio-group>
           <mat-form-field>
-                <input matInput [min]="minDate" [max]="todaysDate" [matDatepicker]="datepicker" placeholder="Date Of Birth" ngModel name="birthDate" required>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="datepicker" placeholder="Date Of Birth" ngModel name="birthDate" required>
                 <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                 <mat-datepicker #datepicker></mat-datepicker>
+                <mat-hint>must be at least 18 years old</mat-hint>
           </mat-form-field>
           <mat-form-field>
               <input matInput name="address" placeholder="Address" ngModel required>
