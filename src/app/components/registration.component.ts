@@ -9,6 +9,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+
 export class RegistrationComponent implements OnInit {
 
   todaysDate:Date;
@@ -19,17 +20,16 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.todaysDate = new Date();
-    console.log(this.todaysDate);
   }
 
   processForm(theForm: NgForm) {
-    console.log(theForm.value);
     this.userData = theForm.value;
-    console.log(this.userData);
+
     this.userSvc.addUser(this.userData)
-        .subscribe((data: any) => {
-          console.log("post successful");
-    })
+      .subscribe((data:any)=>{
+        console.log("post successful => ", data);
+      });
+    theForm.resetForm();
     this.route.navigate(['/Thanks',this.userData.name, this.userData.gender])
   }
 
